@@ -90,9 +90,10 @@ const editNotesByIdHandler = (request, h) => {
     // const note = notes.filter((n) => n.id === id)[0];
 };
 
-const deleteNotesById = (request, h) => {
+const deleteNotesByIdHandler = (request, h) => {
     const { id } = request.params;
-    const index = notes.indexOf((note) => note.id === id);
+    const index = notes.findIndex((note) => note.id === id);
+    console.log(index);
     if (index !== -1) {
         const delNotes = notes.splice(index, 1);
         if (delNotes) {
@@ -125,5 +126,5 @@ module.exports = {
     getAllNotesHandler,
     getNotesByIdHandler,
     editNotesByIdHandler,
-    deleteNotesById,
+    deleteNotesByIdHandler,
 };
